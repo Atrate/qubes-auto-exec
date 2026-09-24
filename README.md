@@ -20,7 +20,7 @@ The config file name path is hardcoded as `/etc/qubes/auto-exec.toml`.
 
 1. Download `qubes-auto-exec.py` and `qubes-auto-exec.service` and copy them over to `dom0`
 2. Inside `dom0` copy the service file to `/etc/systemd/system` and the Python script to `/usr/local/bin`
-3. Inside `dom0`, copy `auto-exec.toml` to `/etc/qubes/` and modify it to suit your purposes
+3. Inside `dom0`, create `auto-exec.toml` in `/etc/qubes/` and modify it to suit your purposes (for examples, see section below)
 4. Also inside `dom0`, execute `sudo chmod +x /usr/local/bin/qubes-auto-exec.py; sudo systemctl daemon-reload && sudo systemctl
    enable --now qubes-auto-exec`.
 
