@@ -1,0 +1,22 @@
+[Unit]
+Description=Qubes auto-exec: run commands on domain-start
+After=qubesd.service
+Wants=qubesd.service
+
+[Service]
+Type=simple
+User=user
+ExecStart=/usr/local/bin/qubes-auto-exec.py
+
+# Unbuffer stdout
+Environment=PYTHONUNBUFFERED=1
+# Env for notifications
+Environment=XDG_RUNTIME_DIR=/run/user/1000
+Environment=DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+
+Restart=on-failure
+RestartSec=5
+SyslogIdentifier=qubes-auto-exec
+
+[Install]
+WantedBy=multi-user.target
